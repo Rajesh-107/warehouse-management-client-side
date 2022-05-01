@@ -1,0 +1,55 @@
+[{
+        "id": 1,
+        "name": "ENGINE DIAGNOSTIC",
+        "price": "300",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/S6YvMXV/chad-kirchoff-xe-e69j6-Ds-unsplash-2-copy.jpg",
+        "quantity": 0,
+        "supplier name": "Abenet"
+    },
+    {
+        "id": 2,
+        "name": "ENGINE DIAGNOSTIC",
+        "price": "300",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/d0hk8t3/daniel-bestjumpstarterreview-com-ov-Gr-EUgrky-E-unsplash-2.jpg",
+        "quantity": 0,
+        "supplier name": "Abenet"
+    },
+    {
+        "id": 3,
+        "name": "ENGINE DIAGNOSTIC",
+        "price": "300",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/PtQp4FV/garett-mizunaka-x-Fjti9r-YILo-unsplash-2.jpg",
+        "quantity": 0,
+        "supplier name": "Abenet"
+    },
+    {
+        "id": 4,
+        "name": "ENGINE DIAGNOSTIC",
+        "price": "300",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/VSrJ69j/robert-laursoo-WHPOFFz-Y9g-U-unsplash-2.jpg",
+        "quantity": 0,
+        "supplier name": "Abenet"
+    },
+    {
+        "id": 5,
+        "name": "ENGINE DIAGNOSTIC",
+        "price": "300",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/vdChw8Q/sam-loyd-qy27-Jns-H9s-U-unsplash-2.jpg",
+        "quantity": 0,
+        "supplier name": "Abenet"
+    },
+    {
+        "id": 6,
+        "name": "ENGINE DIAGNOSTIC",
+        "price": "300",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/2qDwTj8/tim-mossholder-V37i-Tr-YZz2-E-unsplash-2.jpg",
+        "quantity": 0,
+        "supplier name": "Abenet"
+    }
+]
