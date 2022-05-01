@@ -8,7 +8,7 @@ const PartItem = ({carPart}) => {
      <div className='items col-md-12 col-sm-3'>
          <CardGroup>
   <Card>
-    <Card.Img variant="top" src={img} />
+    <Card.Img variant="top" className='w-100' src={img} />
     <Card.Body>
       <Card.Title>{name}</Card.Title>
       <Card.Text>

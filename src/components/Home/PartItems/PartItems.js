@@ -13,8 +13,8 @@ const PartItems = () => {
     },[])
 
     return (
-        <div className='container'>
-            <h2 className='text-primary align-items-center'>Cart part items Available </h2>
+        <div className='container mt-4'>
+            <h2 className='text-center'>Cart part items Available </h2>
            <div className='items-card mb-3'>
            {
                 carParts.map(carPart => <PartItem 
