@@ -1,9 +1,16 @@
 import React from 'react';
 import { Button, Card, CardGroup } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './PartItem.css';
 
 const PartItem = ({carPart}) => {
-    const {name, img, description, price, quantity, supplier} = carPart;
+    const {id,name, img, description, price, quantity, supplier} = carPart;
+    const navigate = useNavigate();
+
+    const itemDetail = id =>{
+      navigate(`/inventory/${id}`);
+    }
+
     return (
      <div className='items col-md-12 col-sm-3'>
          <CardGroup>
@@ -24,7 +31,7 @@ const PartItem = ({carPart}) => {
         <p><small>Supplier: {supplier}</small></p>
       </Card.Text>
     </Card.Body>
-    <Button className='btn btn-danger'>Stock Item</Button>
+    <Button onClick={()=> itemDetail(id)} className='btn btn-danger'>Stock Item</Button>
   </Card>
   
 </CardGroup>
