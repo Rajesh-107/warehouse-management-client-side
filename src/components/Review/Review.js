@@ -4,7 +4,7 @@ import review1 from '../../images/section/chris-liverani-HUJDz6CJEaM-unsplash-2.
 
 const Review = () => {
     return (
-        <div className='container'>
+        <div id='review' className='container'>
             <h2 className='text-center'>Our Review Part</h2>
             <div className="container px-4">
   <div className="row gx-5">
