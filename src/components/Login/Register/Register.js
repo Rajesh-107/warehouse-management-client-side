@@ -1,13 +1,35 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Register = () => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+
+
     const navigate = useNavigate();
     
     const navigateLogin = () =>{
         navigate('/login');
     } 
+    if(user){
+        navigate('/home');
+    }
+
+    const handleRegister = e =>{
+        e.preventDefault();
+        const email =e.target.email.value;
+        const password=e.target.password.value;
+        const name =e.target.name.value;
+
+        createUserWithEmailAndPassword(email, password);
+    }
 
     return (
         <div>
@@ -24,12 +46,12 @@ const Register = () => {
 						<h2>Register Now</h2>
 					</div>
 					<div className="row">
-						<form control="" className="form-group">
+						<form onSubmit={handleRegister} control="" className="form-group">
 							<div className="row">
-								<input  type="text" required name="username" id="username" className="form__input" placeholder="UserName"/>
+								<input  type="text" required name="name" id="username" className="form__input" placeholder="UserName"/>
 							</div>
 							<div className="row">
-								<input  type="email" required name="username" id="username" className="form__input" placeholder="UserEmail"/>
+								<input  type="email" required name="email" id="username" className="form__input" placeholder="UserEmail"/>
 							</div>
 							<div className="row">
 								<span className="fa fa-lock"></span>
