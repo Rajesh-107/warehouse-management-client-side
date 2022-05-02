@@ -1,8 +1,9 @@
 import React, {useRef} from 'react';
 import './Login.css';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const [
@@ -12,8 +13,8 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
-     
-
+    const location = useLocation(); 
+    let from = location.state?.from?.pathname || '/'
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate()
@@ -30,7 +31,7 @@ const Login = () => {
         navigate('/register');
     }
     if(user){
-        navigate('/home');
+        navigate(from, {replace: true});
     }
 
 
@@ -38,6 +39,7 @@ const Login = () => {
         <div>
             
             <div className="container-fluid">
+                
 		<div className="row main-content bg-success text-center">
 			<div className="col-md-4 text-center company__info">
 				<span className="company__logo"><h2><span className="fa fa-android"></span></h2></span>
@@ -48,6 +50,7 @@ const Login = () => {
 					<div className="row">
 						<h2>Log In</h2>
 					</div>
+                    <SocialLogin></SocialLogin>
 					<div className="row">
 						<form onSubmit={handleSubmit} control="" className="form-group">
 							<div className="row">
@@ -66,7 +69,8 @@ const Login = () => {
 							</div>
 						</form>
 					</div>
-					<div className="row">
+                    <SocialLogin></SocialLogin>
+					<div className="row mt-3">
 						<p>Don't have an account? <Link to='/register' onClick={navigateRegister} className='text-decoration-none pe-auto text-danger'>Register Here</Link></p>
 					</div>
 				</div>
