@@ -7,6 +7,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
 	let errorElement;
@@ -64,7 +65,9 @@ const Login = () => {
         <div>
             
             <div className="container-fluid">
-                
+                <Helmet>
+					<title>Login-WareHouse</title>
+				</Helmet>
 		<div className="row main-content bg-success text-center">
 			<div className="col-md-4 text-center company__info">
 				<span className="company__logo"><h2><span className="fa fa-android"></span></h2></span>

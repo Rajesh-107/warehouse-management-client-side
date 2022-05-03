@@ -16,7 +16,11 @@ function App() {
     <div>
       <Header></Header>
         <Routes>
-          <Route path='/' element={<Home></Home>}></Route>
+          <Route path='/' element={
+            <RequireAuth>
+                <Home></Home>
+            </RequireAuth>
+          }></Route>
           <Route path='/home' element={<Home></Home>}></Route>
           <Route path='/inventory/:id' element={<ItemDetail></ItemDetail>}></Route>
           <Route path='/about' element={<About></About>}></Route>
