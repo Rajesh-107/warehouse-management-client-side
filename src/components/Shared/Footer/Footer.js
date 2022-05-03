@@ -8,7 +8,7 @@ const Footer = () => {
            
             <div class="footer-content">
             <h3>WareHouse</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, libero. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut consequuntur a numquam, sequi voluptatibus repellat!</p>
+                <p>Car Parts Warehouse is one of the top 25 Automotive Aftermarket Parts Distributors in the country. We are also members of the largest buying group in the country, the Automotive Distribution Network (ADN). We are an authorized distributor of all of the products that we sell.</p>
             </div>
             <ul class="socials">
     <li><a href="#"> <small>Facebook</small></a></li>
@@ -19,7 +19,7 @@ const Footer = () => {
  </ul>
  <div class="footer-bottom">
         
- <p>copyright &copy;2021 <a href="#">Car Parts WareHouse</a>  </p>
+ <p>copyright &copy;2022 <a href="#">Car Parts WareHouse</a>  </p>
 
 </div>
         </footer>

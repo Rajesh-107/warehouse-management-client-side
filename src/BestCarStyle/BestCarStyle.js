@@ -20,7 +20,7 @@ const BestCarStyle = () => {
         />
         <Carousel.Caption>
           <h3 className='text-muted'>Our Car Shop</h3>
-          <p className='text-muted'>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p className='text-muted h6 text-secondary'>We spread good carma to make a positive impact on the lives of our customers, colleagues, <br /> and also the wider community</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -32,7 +32,7 @@ const BestCarStyle = () => {
 
         <Carousel.Caption>
           <h3 className='text-muted'>Our Car Shop</h3>
-          <p className='text-muted'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className='text-muted h6 text-secondary'>We spread good carma to make a positive impact on the lives of our customers, colleagues, <br /> and also the wider community</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -44,9 +44,7 @@ const BestCarStyle = () => {
 
         <Carousel.Caption>
           <h3 className='text-muted'>Our Car Shop</h3>
-          <p className='text-muted'>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <p className='text-muted h6 text-secondary'>We spread good carma to make a positive impact on the lives of our customers, colleagues, <br /> and also the wider community</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
