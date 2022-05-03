@@ -1,5 +1,5 @@
 [{
-        "id": 1,
+
         "name": "Braking system",
         "price": "$3009",
         "description": "The brake system takes the kinetic energy of your moving vehicle and converts it to thermal energy through friction. That energy is used to slow and stop your four-thousand-pound-plus metal machine",
@@ -8,7 +8,7 @@
         "supplier": "Jeep"
     },
     {
-        "id": 2,
+
         "name": "Engine oil systems",
         "price": "$2000",
         "description": "The oil drips onto the pistons as they move in the cylinders, lubricating the surface between the piston and cylinder. The oil then runs down inside the crankcase to the main bearings holding the crankshaft.",
@@ -17,7 +17,7 @@
         "supplier": "Audi"
     },
     {
-        "id": 3,
+
         "name": "Exhaust system",
         "price": "$1000",
         "description": "The exhaust system collects the exhaust gases from the cylinders, removes harmful substances, reduces the level of noise and discharges the purified exhaust gases at a suitable point of the vehicle.",
@@ -26,7 +26,7 @@
         "supplier": "Honda"
     },
     {
-        "id": 4,
+
         "name": "Suspension and steering systems",
         "price": "$1492",
         "description": "The primary function of your cars suspension and steering systems is to allow the wheels to move independently of the car, while keeping it “suspended” and stable.",
@@ -35,7 +35,7 @@
         "supplier": "ToyotaMass"
     },
     {
-        "id": 5,
+
         "name": "Fuel supply system",
         "price": "$1908",
         "description": "The fuel system in a vehicle consists of a combination of parts, namely the fuel tank, fuel lines, fuel pump, fuel filters, fuel injectors and carburetor (older cars).",
@@ -44,7 +44,7 @@
         "supplier": "HondaMass"
     },
     {
-        "id": 6,
+
         "name": "Flywheel ring gear",
         "price": "$3500",
         "description": "In cars with a manual transmission, the starter ring gear is fitted to the outer diameter of the flywheel. The ring gear is usually fixed to the flywheel through use of an interference fit",

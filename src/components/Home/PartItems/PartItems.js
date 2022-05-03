@@ -7,7 +7,7 @@ const PartItems = () => {
     const [carParts, setCarParts] = useState([]);
 
     useEffect( ()=> {
-        fetch('items.json')
+        fetch('http://localhost:5000/inventory')
         .then(res => res.json())
         .then(data => setCarParts(data))
     },[])
@@ -18,7 +18,7 @@ const PartItems = () => {
            <div className='items-card mb-3'>
            {
                 carParts.map(carPart => <PartItem 
-                    key={carPart.id}
+                    key={carPart._id}
                     carPart={carPart}
                 >
                 </PartItem>)
