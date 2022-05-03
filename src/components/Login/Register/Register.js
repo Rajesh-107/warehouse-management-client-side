@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { async } from '@firebase/util';
+import Loading from '../../Shared/Loading/Loading';
 
 const Register = () => {
 	const [agree, setAgree] = useState(false);
@@ -39,6 +40,9 @@ const Register = () => {
 		navigate('/home');
 		
     }
+	if(loading || updating){
+		return <Loading></Loading>
+	}
 
     return (
         <div>

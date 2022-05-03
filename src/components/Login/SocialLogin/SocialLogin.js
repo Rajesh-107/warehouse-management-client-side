@@ -3,6 +3,7 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import icon from '../../../images/icon/google.png'
+import Loading from '../../Shared/Loading/Loading';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -18,6 +19,9 @@ const SocialLogin = () => {
         navigate('/home');
       }
 
+      if(loading){
+          return <Loading></Loading>
+      }
     return (
         <div>
             <div className='d-flex align-items-center'>
