@@ -1,11 +1,12 @@
 import React, {useRef} from 'react';
 import './Login.css';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
+	let errorElement;
     const [
         signInWithEmailAndPassword,
         user,
@@ -26,6 +27,7 @@ const Login = () => {
 
         signInWithEmailAndPassword(email, password);
     }
+	const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     const navigateRegister = e =>{
         navigate('/register');
@@ -33,7 +35,18 @@ const Login = () => {
     if(user){
         navigate(from, {replace: true});
     }
+	if (error) {
+        errorElement =  <div>
+            <p className='text-danger'>Error: {error.message}</p>
+          </div>
+    
+      }
 
+	  const resetPassword = async() =>{
+		const email = emailRef.current.value;
+		await sendPasswordResetEmail(email);
+		alert('Sent Email');
+	  }
 
     return (
         <div>
@@ -50,7 +63,7 @@ const Login = () => {
 					<div className="row">
 						<h2>Log In</h2>
 					</div>
-                    <SocialLogin></SocialLogin>
+                   
 					<div className="row">
 						<form onSubmit={handleSubmit} control="" className="form-group">
 							<div className="row">
@@ -64,14 +77,16 @@ const Login = () => {
 								<input type="checkbox" name="remember_me" id="remember_me" className=""/>
 								<label for="remember_me">Remember Me!</label>
 							</div>
-							<div className="row">
-								<input type="submit" value="Submit" className="btn-sub"/>
+							<div className="row w-100 mx-auto d-block">
+								<input type="submit" value="Login" className="btn-sub"/>
 							</div>
 						</form>
+						{errorElement}
 					</div>
                     <SocialLogin></SocialLogin>
 					<div className="row mt-3">
 						<p>Don't have an account? <Link to='/register' onClick={navigateRegister} className='text-decoration-none pe-auto text-danger'>Register Here</Link></p>
+						<p>Forget Password? <Link to='/register' onClick={resetPassword} className='text-decoration-none pe-auto text-primary'>Reset Password</Link></p>
 					</div>
 				</div>
 			</div>

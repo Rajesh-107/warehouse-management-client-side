@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { async } from '@firebase/util';
 
 const Register = () => {
+	const [agree, setAgree] = useState(false);
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
+	  const [updateProfile, updating, upadeteError] = useUpdateProfile(auth);
 
 
     const navigate = useNavigate();
@@ -20,16 +23,21 @@ const Register = () => {
         navigate('/login');
     } 
     if(user){
-        navigate('/home');
+      console.log(user);  
     }
 
-    const handleRegister = e =>{
+    const handleRegister = async (e) =>{
         e.preventDefault();
         const email =e.target.email.value;
         const password=e.target.password.value;
         const name =e.target.name.value;
+		// const agree = e.target.terms.checked;
 
-        createUserWithEmailAndPassword(email, password);
+		await createUserWithEmailAndPassword(email, password);
+		await updateProfile({displayName: name});
+		console.log('Updated profile');
+		navigate('/home');
+		
     }
 
     return (
@@ -59,12 +67,11 @@ const Register = () => {
 								<span className="fa fa-lock"></span>
 								<input  type="password" required name="password" id="password" className="form__input" placeholder="Password"/>
 							</div>
-							<div className="row">
-								<input type="checkbox" name="remember_me" id="remember_me" className=""/>
-								<label for="remember_me">Remember Me!</label>
-							</div>
-							<div className="row">
-								<input type="submit" value="Submit" className="btn-sub"/>
+							<input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" />
+							<label className={agree ? 'ps-2 text-primary' : 'ps-2 text-danger'}  htmlFor="terms">Accept Terms and Condition</label>
+							<div className="row w-100 mx-auto d-block">
+							<input disabled={!agree}
+							type="submit" value="Submit" className="btn-sub"/>
 							</div>
 						</form>
 					</div>
