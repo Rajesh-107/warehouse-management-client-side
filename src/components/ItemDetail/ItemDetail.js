@@ -3,6 +3,7 @@ import {Link, useParams} from 'react-router-dom';
 import './ItemDetail.css';
 
 const ItemDetail = () => {
+ 
     const {id} = useParams();
     const [stockItem, setStockItem] = useState({});
 
@@ -18,9 +19,9 @@ const ItemDetail = () => {
     return (
         <div>
             <h2>Stock Item: {stockItem.name} </h2>
-            <table>
+            <table className='container'>
     <tr>
-      
+      <th>id</th>
       <th>name</th>
       <th>image</th>
       <th>price</th>
@@ -29,6 +30,7 @@ const ItemDetail = () => {
       
     </tr>
     <tr>
+    <td>{stockItem._id}</td>
       <td>{stockItem.name}</td>
       <td>{stockItem.img}</td>
       <td>{stockItem.price}</td>
@@ -39,7 +41,7 @@ const ItemDetail = () => {
   </table>
             <div className='text-center'>
             <Link to='/delivered'>
-                <button className='btn btn-secondary'>Delivered Item</button>
+                <button className='btn btn-secondary mt-5 mb-5'>Delivered Item</button>
             </Link>
             </div>
         </div>

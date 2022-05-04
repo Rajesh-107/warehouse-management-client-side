@@ -28,7 +28,12 @@ const Header = () => {
     <Nav.Link href="/home">Home</Nav.Link>
       <Nav.Link href="home#carparts">Car Parts</Nav.Link>
       <Nav.Link href="home#review">Review</Nav.Link>
-      
+      {
+        user && <>
+        <Nav.Link as={Link} to="manageInventory">Manage Inventory</Nav.Link>
+        <Nav.Link as={Link} to="addInventory">Add Items</Nav.Link>
+        </>
+      }
     
     </Nav>
     <Nav>

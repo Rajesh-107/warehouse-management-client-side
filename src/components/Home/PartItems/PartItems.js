@@ -9,7 +9,7 @@ const PartItems = () => {
     useEffect( ()=> {
         fetch('http://localhost:5000/inventory')
         .then(res => res.json())
-        .then(data => setCarParts(data))
+        .then(data => setCarParts(data.slice(0,6)))
     },[])
 
     return (
