@@ -8,7 +8,7 @@ const usePartItems = () =>{
         .then(res => res.json())
         .then(data => setCarParts(data));
     },[]);
-    return [carParts];
+    return [carParts, setCarParts];
 }
 
 

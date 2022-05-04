@@ -3,7 +3,26 @@ import usePartItems from '../hooks/usePartItems';
 import './ManageInventory.css';
 
 const ManageInventory = () => {
-    const [carParts] = usePartItems();
+    const [carParts, setCarParts] = usePartItems();
+
+    const handleDelete = (id) =>{
+        const proceed = window.confirm('Are you sure about that?');
+        if(proceed){
+            const url = `http://localhost:5000/inventory/${id}`;
+
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data =>{
+                console.log(data);
+                const remainingItem = carParts.filter(carPart => carPart._id !== id);
+                setCarParts(remainingItem);
+            })
+        }
+    }
+
+
     return (
         <div>
             <h2>Manage Inventory</h2>
@@ -19,7 +38,7 @@ const ManageInventory = () => {
       <th scope="col">Price</th>
       <th scope="col">Quantity</th>
       <th scope="col">Supplier</th>
-      <button className='btn btn-danger'>Delete Item</button>
+      <button onClick={()=> handleDelete(carPart._id)} className='btn btn-danger'>Delete Item</button>
     </tr>
   </thead>
   <tbody>
