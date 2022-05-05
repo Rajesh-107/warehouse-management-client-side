@@ -8,6 +8,7 @@ import Loading from '../../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
+import { LoginIcon, LogoutIcon } from '@heroicons/react/solid'
 
 const Login = () => {
 	let errorElement;
@@ -93,7 +94,8 @@ const Login = () => {
 								<label for="remember_me">Remember Me!</label>
 							</div>
 							<div className="row w-100 mx-auto d-block">
-								<input type="submit" value="Login" className="btn-sub"/>
+								<input type="submit"  value="Login" className="btn-sub"/>
+								
 							</div>
 						</form>
 						{errorElement}

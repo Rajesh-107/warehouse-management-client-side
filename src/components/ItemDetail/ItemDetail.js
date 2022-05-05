@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {Link, useParams} from 'react-router-dom';
+import useItemDetail from '../hooks/useItemDetail';
 import './ItemDetail.css';
 
 const ItemDetail = () => {
  
     const {id} = useParams();
-    const [stockItem, setStockItem] = useState({});
-
-    useEffect( () =>{
-        const url = `http://localhost:5000/inventory/${id}`;
-
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setStockItem(data))
-
-    },[])
+    const [stockItem] = useItemDetail(id);
 
     return (
         <div>
@@ -40,7 +32,7 @@ const ItemDetail = () => {
    
   </table>
             <div className='text-center'>
-            <Link to='/delivered'>
+            <Link to={`/delivered/${id}`}>
                 <button className='btn btn-secondary mt-5 mb-5'>Delivered Item</button>
             </Link>
             </div>
