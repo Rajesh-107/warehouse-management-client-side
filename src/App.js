@@ -11,6 +11,7 @@ import RequireAuth from './components/Login/RequireAuth/RequireAuth';
 import ManageInventory from './components/ManageInventory/ManageInventory';
 import MyItems from './components/MyItems/MyItems';
 import NotFound from './components/NotFound/NotFound';
+import OrderHistory from './components/OrderHistory/OrderHistory';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
 import StockItem from './components/StockItem/StockItem';
@@ -49,6 +50,11 @@ function App() {
           <Route path='/myItems' element={
             <RequireAuth>
               <MyItems></MyItems>
+            </RequireAuth>
+          }></Route>
+          <Route path='/order' element={
+            <RequireAuth>
+              <OrderHistory></OrderHistory>
             </RequireAuth>
           }></Route>
           <Route path='*' element={<NotFound></NotFound>}></Route>

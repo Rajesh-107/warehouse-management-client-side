@@ -8,7 +8,7 @@ import Loading from '../../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
-import { LoginIcon, LogoutIcon } from '@heroicons/react/solid'
+import axios from 'axios';
 
 const Login = () => {
 	let errorElement;
@@ -18,7 +18,7 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
-	 
+	  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     const location = useLocation(); 
     let from = location.state?.from?.pathname || '/'
@@ -26,21 +26,27 @@ const Login = () => {
     const passwordRef = useRef('');
     const navigate = useNavigate()
 
-    const handleSubmit = e =>{
+	if(user){
+        // navigate(from, {replace: true});
+    }
+    const handleSubmit = async e =>{
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        signInWithEmailAndPassword(email, password);
+       await signInWithEmailAndPassword(email, password);
+	   const {data} = await axios.post('http://localhost:5000/login', {email});
+	   localStorage.setItem('accessToken', data.accessToken);
+		navigate(from, {replace: true});
+	//    localStorage.setItem('accessToken', data.accessToken);
+	//    navigate(from, {replace: true});
     }
-	const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+	
 
     const navigateRegister = e =>{
         navigate('/register');
     }
-    if(user){
-        navigate(from, {replace: true});
-    }
+    
 	if (error) {
         errorElement =  <div>
             <p className='text-danger'>Error: {error.message}</p>
