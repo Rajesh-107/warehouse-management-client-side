@@ -4,14 +4,11 @@ import useItemDetail from '../hooks/useItemDetail';
 import './ItemDetail.css';
 
 const ItemDetail = () => {
- 
     const {id} = useParams();
     const [stockItem] = useItemDetail(id);
-
     return (
         <div>
-            <h2>Stock Item: {stockItem.name} </h2>
-            <table className='container'>
+            <table className='container mt-5'>
     <tr>
       <th>id</th>
       <th>name</th>
@@ -24,7 +21,7 @@ const ItemDetail = () => {
     <tr>
     <td>{stockItem._id}</td>
       <td>{stockItem.name}</td>
-      <td>{stockItem.img}</td>
+      <td> <img className='w-50' src={stockItem.img} alt="" /> </td>
       <td>{stockItem.price}</td>
       <td>{stockItem.quantity}</td>
       <td>{stockItem.supplier}</td>

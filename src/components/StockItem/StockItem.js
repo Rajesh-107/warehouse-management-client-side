@@ -30,7 +30,7 @@ const StockItem = () => {
       <input className='mb-3' placeholder='Quantity' type="number" {...register("quantity")} />
       <input className='mb-3' placeholder='Photo URL' type="text" {...register("img")} />
       <input className='mb-3' placeholder='Supplier' type="text" {...register("supplier")} />
-      <input className='mb-3' type="submit" value="Stock Item" />
+      <input className='mb-3 btn btn-secondary' type="submit" value="Stock Item" />
     </form>
         </div>
     );

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import usePartItems from '../hooks/usePartItems';
 import './ManageInventory.css';
 
 const ManageInventory = () => {
     const [carParts, setCarParts] = usePartItems();
+    
 
     const handleDelete = (id) =>{
         const proceed = window.confirm('Are you sure about that?');
@@ -21,11 +22,21 @@ const ManageInventory = () => {
             })
         }
     }
-
+    const [quantity, setQuantity] = useState();
+    const incrQty = () =>{
+      setQuantity(prevCount => prevCount+1);
+    }
+    const decrQty = (id) =>{
+      if(quantity >1){
+        setQuantity(prevCount => prevCount-1);
+      }
+      
+    }
+   
 
     return (
         <div>
-            <h2>Manage Inventory</h2>
+            <h2 className='text-center mt-4 mb-4'>Manage Inventory</h2>
             {
                 carParts.map(carPart => <div
                 key={carPart._id}
@@ -38,8 +49,10 @@ const ManageInventory = () => {
       <th scope="col">Price</th>
       <th scope="col">Quantity</th>
       <th scope="col">Supplier</th>
-      <button onClick={()=> handleDelete(carPart._id)} className='btn btn-danger'>Delete Item</button>
+      <th scope="col">image</th>
+     
     </tr>
+   
   </thead>
   <tbody>
     <tr>
@@ -47,10 +60,17 @@ const ManageInventory = () => {
       <td data-label="price">{carPart.price}</td>
       <td data-label="quantity">{carPart.quantity}</td>
       <td data-label="supplier">{carPart.supplier}</td>
-
-      <button className='btn btn-secondary'>Update Stock</button>
+      <td data-label="supplier"> <img className='w-50' src={carPart.img} alt="" /> </td>
+      <td>
+        <button onClick={incrQty}>+</button>
+       
+        <button onClick={decrQty}>-</button>
+      </td>
     </tr>
   </tbody>
+  <div>
+      <button onClick={()=> handleDelete(carPart._id)} className='btn btn-danger'>Delete Item</button>
+    </div>
     </table>
        </div>
   </div>)
