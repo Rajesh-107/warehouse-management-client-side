@@ -49,7 +49,7 @@ const Header = () => {
         </div>
     : 
     <Nav.Link as={Link} to="login">
-        Login
+        Login 
         <LoginIcon style={{height: '24px'}}></LoginIcon>
       </Nav.Link>}
     </Nav>

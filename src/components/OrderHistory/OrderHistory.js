@@ -8,22 +8,19 @@ const OrderHistory = () => {
     const [user] = useAuthState(auth);
     const [myItems, setMyItems] = useState([]);
  
-    
-    useEffect( () =>{
-
+      useEffect( () =>{
         const getItems = async() =>{
-         const url = `http://localhost:5000/orders`;
+        const email = user.email;
+         const url = `http://localhost:5000/orders?email=${email}`;
          const {data} = await axios.get(url);
          setMyItems(data);
         }
         getItems();
-        
-
     },[user])
 
     return (
         <div className='mb-5 mt-3'>
-            <h2>Orders:{myItems.length}  </h2>
+            <h2 className='text-center '>My all Items  </h2>
         {
             myItems.map(myItem => <div  key={myItem._id}>
 
