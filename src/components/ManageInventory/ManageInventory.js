@@ -5,6 +5,7 @@ import './ManageInventory.css';
 const ManageInventory = () => {
     const [carParts, setCarParts] = usePartItems();
     
+    
 
     const handleDelete = (id) =>{
         const proceed = window.confirm('Are you sure about that?');
@@ -22,16 +23,16 @@ const ManageInventory = () => {
             })
         }
     }
-    const [quantity, setQuantity] = useState();
-    const incrQty = () =>{
-      setQuantity(prevCount => prevCount+1);
-    }
-    const decrQty = (id) =>{
-      if(quantity >1){
-        setQuantity(prevCount => prevCount-1);
-      }
+ 
+    // const incrQty = () =>{
+    //   setPart(prevCount => prevCount+1);
+    // }
+    // const decrQty = (id) =>{
+    //   if(part >1){
+    //     setPart(prevCount => prevCount-1);
+    //   }
       
-    }
+    // }
    
 
     return (
@@ -62,9 +63,9 @@ const ManageInventory = () => {
       <td data-label="supplier">{carPart.supplier}</td>
       <td data-label="supplier"> <img className='w-50' src={carPart.img} alt="" /> </td>
       <td>
-        <button onClick={incrQty}>+</button>
-       
-        <button onClick={decrQty}>-</button>
+        {/* <button onClick={incrQty}>+</button>
+       {part.quantity}
+        <button onClick={decrQty}>-</button> */}
       </td>
     </tr>
   </tbody>
