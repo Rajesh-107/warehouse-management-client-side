@@ -1,16 +1,16 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
-const useItemDetail = id =>{
+const useItemDetail = id => {
     const [stockItem, setStockItem] = useState({});
 
-    useEffect( () =>{
-        const url = `http://localhost:5000/inventory/${id}`;
+    useEffect(() => {
+        const url = `https://morning-hamlet-62684.herokuapp.com/inventory/${id}`;
 
         fetch(url)
-        .then(res => res.json())
-        .then(data => setStockItem(data))
+            .then(res => res.json())
+            .then(data => setStockItem(data))
 
-    },[id]);
+    }, [id]);
     return [stockItem]
 }
 export default useItemDetail;

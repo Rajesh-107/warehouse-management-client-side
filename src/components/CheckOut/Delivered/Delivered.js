@@ -24,7 +24,7 @@ const Delivered = () => {
             phone:e.target.phone.value,
             
         }
-        axios.post('http://localhost:5000/order', order)
+        axios.post('https://morning-hamlet-62684.herokuapp.com/order', order)
         .then(response => {
             console.log(response);
             const {data} = response;

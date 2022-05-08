@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# WareHouse project
+
+## live link:https://warehouse-car-parts.web.app
+
+- easy to tue
+- this is full stack i tried everything but something mistake
+- there is email/password implementation
+- and also google registration
+- i use client side for deploy firebase
+- for server side used Heroku
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
